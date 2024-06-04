@@ -1,0 +1,50 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+Lista de Membros
+{% endblock page_title %}
+  
+      {% block content %}
+      <div class="container">
+        <h1 >Lista de Membros</h1> 
+        
+              <table class="table">
+                <thead>
+                  <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nome</th>
+                    <th scope="col">Sobre Nome</th>
+                    <th scope="col">Data Nascimento</th>
+                    <th scope="col">Data Batismo</th>
+                    <th scope="col">Endereço</th>
+                    <th scope="col">CEP</th>
+                    <th scope="col">Ações</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  
+                  {% for membros in members_list %}
+                      <tr>
+                        <th scope="row">{{ membros.pk }}</th>
+                        <td>{{ membros.first_name }}</td>
+                        <td>{{ membros.last_name }}</td>
+                        <td>{{ membros.date_birth | date:"d-m-Y" }}</td>
+                        <td>{{ membros.date_baptism | date:"d-m-Y"}}</td>
+                        <td>{{ membros.address }}</td>
+                        <td>{{ membros.cep | default:"-"}}</td> 
+                        <td>
+
+                          <a href=" {% url "members_update" pk=membros.pk %} " class="btn btn-outline-secondary btn-sm">Editar</a>
+                          <a href="{% url "members_delete" pk=membros.pk %}" class="btn btn-outline-danger btn-sm">Excluir</a>
+
+                        </td>
+                      </tr>
+                    {% endfor %}
+                  
+                </tbody>
+              </table>
+                <a href="{% url "members_create" %}" class="btn btn-primary btn-sm">Novo Cadastro</a>
+                <a href="{% url 'download_excel' %}" class="btn btn-success btn-sm">Download Excel</a>
+        </div>
+      {% endblock content %}
+    

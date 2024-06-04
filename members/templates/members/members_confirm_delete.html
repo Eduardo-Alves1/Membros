@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% block page_title %}
+    Excluir Membro
+{% endblock page_title %}
+
+
+
+{% block content %}
+    <div class="container">
+        <h1>Exluir Membro</h1>
+
+        <p>Tem certeza que deseja exluir o membro <strong>{{members.first_name}} {{members.last_name}}</strong></p>
+        <form method="POST">
+            {% csrf_token %}
+
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="{% url "members_list" %}" class="btn btn-primary">Cancelar</a>
+
+        </form>
+    </div>
+
+    <!--AQUI MAIS UMA CONFIRMAÇÃO DE EXLUSÃO EM JAVASCRIPT-->
+    <script>
+        document.querySelector('form').addEventListener('submit', function(e) {
+            if (!confirm('Tem certeza que deseja excluir o membro {{ members.first_name }} ?')) {
+                e.preventDefault(); // Previne a submissão do formulário se o usuário não confirmar
+            }
+        });
+        </script>
+        
+{% endblock content %}
+
+
+

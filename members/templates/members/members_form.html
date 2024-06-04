@@ -1,0 +1,37 @@
+{% extends "base.html" %}
+
+{% load crispy_forms_tags %}
+
+{% block page_title %}
+  {% if members.pk %}
+    Editar Informações
+  {% else %}
+    Novo Membro 
+  {% endif %}
+
+{% endblock page_title %}
+
+  {% block content %}
+  <!--PRECISO TENTAR FORMATAR OS FORMULARIOS ESTÃO MUITO GRANDES, E COLOCAR EM UM PADRÃO DE DATA E CEP-->
+  <div class="container">
+
+      {% if members.pk %}
+        <h1>Editar Informações</h1>
+
+      {% else %}
+
+        <h1>Novo Membro</h1>  
+      {% endif %}
+      
+      <form method="POST">
+        {% csrf_token %}
+        {{form | crispy}}
+
+        <button type="submit" class="btn btn-primary">Cadastrar</button>
+        <a href="{% url "members_list" %}" class="btn btn-danger">Cancelar</a>
+      </form>
+    </div>
+
+  {% endblock content %}
+
+   

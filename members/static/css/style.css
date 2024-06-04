@@ -1,0 +1,32 @@
+body{
+  background-image: black;
+}
+
+
+.div{
+
+width: 100vw;
+height: 100vh;
+background: #6C7A89;
+display: flex;
+flex-direction: row;
+justify-content: center;
+align-items: center;
+
+}
+
+.login{
+  text-align: center;
+  background-color: white;
+  border-radius: 10px;
+  padding: 10px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 10px;
+  margin-right: 10px;
+  width: 300px;
+  height: 300px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.75);
+  position: relative;
+
+}
