@@ -8,7 +8,7 @@ from django.views.generic import (
     View,
 )
 from django.urls import reverse_lazy
-from django.http import HttpResponse, request
+from django.http import HttpResponse
 
 import openpyxl
 

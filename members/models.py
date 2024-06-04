@@ -3,6 +3,7 @@ from django.dispatch import receiver
 from django.db.models.signals import pre_save
 from localflavor.br.models import BRPostalCodeField
 from django.core.validators import RegexValidator
+from django.contrib.auth.models import User
 
 # AQUI TEMOS UMA IMPORTAÇÃO DE UMA BIBLIOTÉCA PARA PADRONIZAR O CEP BRPostalCodeFildes
 

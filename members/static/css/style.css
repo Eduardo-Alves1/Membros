@@ -7,7 +7,6 @@ body{
 
 width: 100vw;
 height: 100vh;
-background: #6C7A89;
 display: flex;
 flex-direction: row;
 justify-content: center;
@@ -17,7 +16,7 @@ align-items: center;
 
 .login{
   text-align: center;
-  background-color: white;
+  background-color: transparent;
   border-radius: 10px;
   padding: 10px;
   margin-top: 10px;
